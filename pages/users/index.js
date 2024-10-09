@@ -1,4 +1,4 @@
-const index = () => {
+ const index = () => {
   return <p>users</p>;
 };
 
