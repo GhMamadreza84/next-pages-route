@@ -1,16 +1,23 @@
 import Link from "next/link";
 
 const index = () => {
+  const users = [
+    { id: 1, name: 1 },
+    { id: 2, name: 2 },
+    { id: 3, name: 3 },
+    { id: 4, name: 4 },
+    { id: 5, name: 5 },
+    { id: 6, name: 6 },
+  ];
   return (
     <>
       <h1>Users List</h1>
       <ul>
-        <li>
-          <Link href="/users/1">User 1</Link>
-        </li>
-        <li>
-          <Link href="/users/2">User 2</Link>
-        </li>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link href={`/users/${user.id}`}>User {user.name}</Link>
+          </li>
+        ))}
       </ul>
     </>
   );
