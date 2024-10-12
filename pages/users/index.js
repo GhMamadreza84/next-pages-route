@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const index = () => {
+  const router = useRouter();
+ 
   const users = [
     { id: 1, name: 1 },
     { id: 2, name: 2 },
