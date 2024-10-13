@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 const index = () => {
   const router = useRouter();
- 
+
   const users = [
     { id: 1, name: 1 },
     { id: 2, name: 2 },
@@ -22,6 +22,17 @@ const index = () => {
           </li>
         ))}
       </ul>
+      <style jsx>
+        {`
+          ul {
+            list-style: none;
+            color: red;
+          }
+          a {
+            color: red !important;
+          }
+        `}
+      </style>
     </>
   );
 };
