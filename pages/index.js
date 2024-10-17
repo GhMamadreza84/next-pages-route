@@ -18,7 +18,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   //  fetch data from api
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await fetch("http://localhost:4000/posts");
   const res = await data.json();
   return {
     props: {
