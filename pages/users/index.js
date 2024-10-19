@@ -1,6 +1,17 @@
 import React from "react";
-const Users = () => {
-  return <div>Users</div>;
+const Users = ({ users }) => {
+  return (
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
+          <>
+            <li key={user.id}>{user.name}</li> <br></br>
+          </>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Users;
@@ -10,6 +21,6 @@ export async function getStaticProps() {
   const data = await res.json();
   console.log(data);
   return {
-    props: {},
+    props: { users: data },
   };
 }
