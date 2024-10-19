@@ -18,6 +18,7 @@ export async function getStaticPaths() {
       { params: { userId: "9" } },
       { params: { userId: "10" } },
     ],
+    fallback: false,
   };
 }
 
