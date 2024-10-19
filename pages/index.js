@@ -1,9 +1,8 @@
-import styles from "../styles/Home.module.css";
 
 export default function Home({ posts }) {
   console.log(posts);
   return (
-    <div className={styles.container}>
+    <div >
       <h1>Ghmamadreza.ir</h1>
       <ul>
         {posts.map((post) => (
