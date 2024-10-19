@@ -1,5 +1,11 @@
-const User = () => {
-  return <div>User </div>;
+const User = ({ data }) => {
+  return (
+    <div>
+      <h1> User Details:</h1>
+      <h3>Name :{data.name}</h3>
+      <h3>Email :{data.email}</h3>
+    </div>
+  );
 };
 
 export default User;
@@ -24,7 +30,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const res = await fetch(`jsonplaceholder.typicode/users/${params.userId}`);
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/users/${params.userId}`
+  );
   const data = await res.json();
   console.log(params);
   return {
