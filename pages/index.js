@@ -1,6 +1,6 @@
 
 export default function Home({ posts }) {
-  console.log(posts);
+  // console.log(posts);
   return (
     <div >
       <h1>Ghmamadreza.ir</h1>
