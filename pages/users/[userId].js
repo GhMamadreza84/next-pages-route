@@ -38,7 +38,11 @@ export async function getStaticProps(context) {
     `https://jsonplaceholder.typicode.com/users/${params.userId}`
   );
   const data = await res.json();
-
+  if (!data.name) {
+    return {
+      notFound: true,
+    };
+  }
   console.log(params);
   return {
     props: {
