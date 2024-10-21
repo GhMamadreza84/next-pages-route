@@ -1,6 +1,12 @@
 const Albums = ({ albums }) => {
   console.log(albums);
-  return <div></div>;
+  return (
+    <div>
+      {albums.map((album) => (
+        <h3 key={album.id}>{album.title}</h3>
+      ))}
+    </div>
+  );
 };
 
 export default Albums;
