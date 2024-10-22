@@ -1,5 +1,5 @@
 const Albums = ({ albums }) => {
-  console.log(albums);
+  // console.log(albums);
   return (
     <div>
       {albums.map((album) => (

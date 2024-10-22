@@ -11,7 +11,7 @@ const User = ({ data }) => {
 export default User;
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+  const res = await fetch(`http://localhost:4000/users`);
   const data = await res.json();
   const userData = data.slice(0, 4);
   const paths = userData.map((user) => ({
