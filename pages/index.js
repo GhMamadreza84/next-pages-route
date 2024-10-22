@@ -1,8 +1,7 @@
-
 export default function Home({ posts }) {
   // console.log(posts);
   return (
-    <div >
+    <div>
       <h1>Ghmamadreza.ir</h1>
       <ul>
         {posts.map((post) => (
@@ -17,8 +16,15 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   //  fetch data from api
-  const data = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await fetch("http://localhost:4000/albums");
   const res = await data.json();
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       posts: res,
