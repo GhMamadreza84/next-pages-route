@@ -12,6 +12,7 @@ const Albums = ({ albums }) => {
 export default Albums;
 
 export async function getServerSideProps() {
+  console.log("generating Albums page");
   const res = await fetch("https://jsonplaceholder.typicode.com/albums");
   const data = await res.json();
   return {
