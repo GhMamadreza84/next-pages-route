@@ -1,3 +1,4 @@
+import { redirect } from "next/dist/server/api-utils";
 import React from "react";
 
 const AlbumDetails = ({ album }) => {
@@ -15,7 +16,16 @@ export async function getServerSideProps(context) {
   const { params } = context;
   const res = await fetch(`http://localhost:4000/albums/${params.albumId}`);
   const data = await res.json();
-  console.log(data);
+
+  if (!data.title) {
+    return {
+      // notFound: true,
+      redirect: {
+        destination: "/albums",
+      },
+    };
+  }
+
   return {
     props: {
       album: data,
