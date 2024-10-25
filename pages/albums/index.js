@@ -1,9 +1,13 @@
+import Link from "next/link";
+
 const Albums = ({ albums }) => {
   // console.log(albums);
   return (
     <div>
       {albums.map((album) => (
-        <h3 key={album.id}>{album.title}</h3>
+        <Link key={album.id} href={`/albums/${album.id}`}>
+          <h3>{album.title}</h3>
+        </Link>
       ))}
     </div>
   );
