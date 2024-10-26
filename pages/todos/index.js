@@ -9,15 +9,19 @@ const Todos = () => {
   }, []);
   return (
     <div>
-      <ul>
-        {data.map((item) => (
-          <li key={item.id}>
-            {item.title}
-            <br></br>
-            <br></br>
-          </li>
-        ))}
-      </ul>
+      {data.length ? (
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>
+              {item.title}
+              <br></br>
+              <br></br>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <h1>Loading ...</h1>
+      )}
     </div>
   );
 };
