@@ -1,4 +1,5 @@
 // import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import useSWR from "swr";
 
 const url = "http://localhost:4000/todos";
@@ -9,7 +10,11 @@ const Todos = () => {
   return (
     <div>
       {data ? (
-        data.map((todo) => <h3 key={todo.id}>{todo.title}</h3>)
+        data.map((todo) => (
+          <Link href={`/todos/${todo.id}`} key={todo.id}>
+            <h3>{todo.title}</h3>
+          </Link>
+        ))
       ) : (
         <p>Loading ...</p>
       )}
