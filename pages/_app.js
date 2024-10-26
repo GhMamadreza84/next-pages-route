@@ -3,9 +3,9 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <p>header</p>
+      <h1>header</h1>
       <Component {...pageProps} />
-      <p>footer</p>
+      <h1>footer</h1>
     </>
   );
 }
