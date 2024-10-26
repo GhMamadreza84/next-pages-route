@@ -17,6 +17,8 @@ const Users = ({ users }) => {
 export default Users;
 
 export async function getStaticProps() {
+  console.log('Generating Users Page | ISR')
+
   const res = await fetch("http://localhost:4000/users");
   const data = await res.json();
   console.log(data);
