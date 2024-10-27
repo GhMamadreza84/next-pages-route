@@ -15,7 +15,7 @@ export default AlbumDetails;
 export async function getServerSideProps(context) {
   console.log('Generating Album Details Page | Dynamic SSR')
   const { params } = context;
-  const res = await fetch(`http://localhost:4000/albums/${params.albumId}`);
+  const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${params.albumId}`);
   const data = await res.json();
 
   if (!data.title) {

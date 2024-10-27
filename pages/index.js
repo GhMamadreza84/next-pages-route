@@ -18,7 +18,7 @@ export async function getStaticProps() {
   console.log('Generating Home Page | SSG')
 
   //  fetch data from api
-  const data = await fetch("http://localhost:4000/albums");
+  const data = await fetch("https://jsonplaceholder.typicode.com/albums");
   const res = await data.json();
 
   if (!data) {

@@ -11,7 +11,7 @@ const User = ({ data }) => {
 export default User;
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:4000/users`);
+  const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
   const data = await res.json();
   const userData = data.slice(0, 4);
   const paths = userData.map((user) => ({
@@ -30,7 +30,9 @@ export async function getStaticProps(context) {
   console.log("Generating User Details Page | ISR");
 
   const { params } = context;
-  const res = await fetch(`http://localhost:4000/users/${params.userId}`);
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/users/${params.userId}`
+  );
   const data = await res.json();
   if (!data.name) {
     return {

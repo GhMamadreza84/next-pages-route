@@ -5,7 +5,7 @@ const TodoDetails = ({ todo }) => {
 
   const updateHandler = async (id) => {
     try {
-      const res = await fetch(`http://localhost:4000/todos/${id}`);
+      const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
       if (!res.ok) throw new Error("Failed to fetch data.");
       const updatedData = await res.json();
       setData(updatedData);
@@ -30,12 +30,29 @@ export default TodoDetails;
 export async function getServerSideProps(context) {
   const { params } = context;
 
-  const res = await fetch(`http://localhost:4000/todos/${params.todoId}`);
+  try {
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/todos/${params.todoId}`
+    );
 
-  const data = await res.json();
-  return {
-    props: {
-      todo: data,
-    },
-  };
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    return {
+      props: {
+        todo: data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+
+    return {
+      props: {
+        todo: null,
+      },
+    };
+  }
 }

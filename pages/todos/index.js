@@ -2,7 +2,7 @@
 import Link from "next/link";
 import useSWR from "swr";
 
-const url = "http://localhost:4000/todos";
+const url = "https://jsonplaceholder.typicode.com/todos";
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Todos = () => {
